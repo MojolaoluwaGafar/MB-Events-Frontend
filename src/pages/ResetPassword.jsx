@@ -27,7 +27,6 @@ const ResetPassword = () => {
 
   const urlParams = new URLSearchParams(location.search);
   const token = urlParams.get("token");
-  console.log({ token });
 
   
 const url = "https://nb-event-server.onrender.com/api/v1/reset-password";
@@ -44,8 +43,6 @@ const url = "https://nb-event-server.onrender.com/api/v1/reset-password";
     redirect("/login")
       }
     } catch (error) {
-      console.log(error);
-      console.log(error?.response?.data?.message);
       toast.error(error?.response?.data?.message || error?.message, {
         position: "top-center",
         autoClose: 7000,
@@ -58,7 +55,7 @@ const url = "https://nb-event-server.onrender.com/api/v1/reset-password";
   return (
     <div>
       <div className="vh-100 d-flex justify-content-center align-items-center reset-container">
-        <form onSubmit={handleSubmit(onSubmit)} className="p-2">
+        <form onSubmit={handleSubmit(onSubmit)} className="p-2 position-relative">
           <Link to="/">
             <img src={logo} alt="logo" className="d-block mx-auto my-2" />
           </Link>

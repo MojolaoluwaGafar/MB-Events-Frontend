@@ -26,7 +26,6 @@ const Login = () => {
   const onSubmit = async (data) => {
 try {
   const result= await axios.post(url,data)
-  console.log(result);
   if(result.status===200){
     //toast
       toast.success("Login Successfully ", {
@@ -40,8 +39,6 @@ try {
     //updating user
   }
 } catch (error) {
-  console.log(error)
-   console.log(error?.response?.data?.message );
    toast.error(error?.response?.data?.message || error?.message, {
      position: "top-center",
      autoClose: 7000,
@@ -56,7 +53,7 @@ try {
     <div className="vh-100 d-flex justify-content-center justify-content-lg-betwee align-items-center py-2  myform container">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="p-3 shadow-lg rounded-2"
+        className="p-3 shadow-lg rounded-2 position-relative"
       >
         <Link to="/">
           <img src={logo} alt="logo" className="d-block mx-auto my-2" />
